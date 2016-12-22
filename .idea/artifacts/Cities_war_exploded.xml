@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Cities:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Cities_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Cities/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Cities" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="com.google.code.gson:gson:2.8.0" />
+          <element id="library" level="project" name="Spring MVC-4.3.4.RELEASE" />
+          <element id="library" level="project" name="Spring-4.3.4.RELEASE" />
+          <element id="library" level="project" name="mysql:mysql-connector-java:6.0.5" />
+          <element id="library" level="project" name="org.jboss.logging:jboss-logging:3.3.0.Final" />
+          <element id="library" level="project" name="jstl-1.2" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
