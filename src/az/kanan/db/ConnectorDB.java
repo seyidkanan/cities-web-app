@@ -12,7 +12,7 @@ public class ConnectorDB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             myConn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/cities?useSSL=false", "root", "oracle");
+                    "jdbc:mysql://localhost:3306/cities?useSSL=false", "username", "pass");
         } catch (Exception ex) {
             System.out.println("Exception: " + ex.getMessage());
         }
