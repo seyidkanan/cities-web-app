@@ -54,5 +54,5 @@ if data not inserted:<br/>
 </code>
 
 
-##Get Cities list with table
+##Get Cities list in JSP
 URL: **http://localhost:XXXX/** or **http://localhost:XXXX/citiesWebList**
