@@ -39,10 +39,6 @@
             Cities List
         </button>
 
-        <button type="button"
-                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent show-modal">
-            Insert City
-        </button>
 
 
         <dialog class="mdl-dialog">

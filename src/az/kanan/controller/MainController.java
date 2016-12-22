@@ -28,12 +28,19 @@ import java.util.List;
 public class MainController {
 
     @RequestMapping("/")
-    public String defaultMethod() {
-        return "index";
+    public String defaultMethod(ModelMap modelMap) {
+        QueriesDB queriesDB = new QueriesDB();
+        try {
+            List<City> cityList = queriesDB.getCitiesList();
+            modelMap.put("cityList", cityList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "citiesPage";
     }
 
 
-    @RequestMapping(value = "/get", method = RequestMethod.GET)
+    @RequestMapping(value = "/getCitiesData", method = RequestMethod.GET)
     @ResponseBody
     public String getCityList() {
         QueriesDB queriesDB = new QueriesDB();
@@ -43,7 +50,7 @@ public class MainController {
             if (cityList != null) {
                 json = new Gson().toJson(cityList);
             } else {
-                json = "{\"error\":\"We cannot get data\"}";
+                json = "{\"error\":\"We cannot get data.\"}";
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -51,7 +58,7 @@ public class MainController {
         return json;
     }
 
-    @RequestMapping(value = "/toCity", method = RequestMethod.GET)
+    @RequestMapping(value = "/citiesWebList", method = RequestMethod.GET)
     public String getCityPage(ModelMap modelMap) {
         QueriesDB queriesDB = new QueriesDB();
         try {
@@ -64,7 +71,7 @@ public class MainController {
     }
 
 
-    @RequestMapping(value = "/post", method = RequestMethod.POST, produces = {"application/json; charset=UTF-8"})
+    @RequestMapping(value = "/insertCity", method = RequestMethod.POST, produces = {"application/json; charset=UTF-8"})
     @ResponseBody()
     public String insertCity(@RequestBody String value) {
         JsonParser jsonParser = new JsonParser();
@@ -82,7 +89,7 @@ public class MainController {
 
         QueriesDB queriesDB = new QueriesDB();
         Boolean isSended = false;
-        String result = "";
+        String result;
         try {
             isSended = queriesDB.insertCityData(city);
         } catch (Exception e) {
@@ -93,7 +100,6 @@ public class MainController {
         } else {
             result = "{\"error\":\"Data was not inserted\"}";
         }
-
         return result;
     }
 
