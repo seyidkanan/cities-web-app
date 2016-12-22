@@ -54,5 +54,5 @@ if data not inserted:<br/>
 </code>
 
 
-##Get Cilies list with table
+##Get Cities list with table
 URL: **http://localhost:XXXX/** or **http://localhost:XXXX/citiesWebList**
